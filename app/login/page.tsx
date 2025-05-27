@@ -12,7 +12,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = () => {
-    if (email === "kieronali0095@gmail.com" && password === "jmschu2487!") {
+    if (email === "kieronali0095@gmail.com" && password === "Monday01!") {
       router.push("/dashboard");
     } else {
       setError("Invalid email or password");
