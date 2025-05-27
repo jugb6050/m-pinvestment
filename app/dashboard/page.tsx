@@ -49,7 +49,7 @@ export default function InvestmentLandingPage() {
     <div className="min-h-screen bg-gray-100 text-gray-900 p-6 flex flex-col justify-between">
       <div>
         <header className="mb-8">
-          <div className="flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 rounded-xl shadow-lg mb-4">
+          <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-black text-white py-6 rounded-xl shadow-lg mb-4">
             <img src="/mnp.svg" alt="M & P Logo" className="w-50 h-50 mr-4" />
             <h1 className="text-4xl font-bold">M & P Investments Bankers</h1>
           </div>
