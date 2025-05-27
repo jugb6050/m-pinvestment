@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { Star, User } from "lucide-react";
 import React, { useState } from "react";
 import {
   LineChart,
@@ -17,7 +18,6 @@ import {
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
 const data = [
   { name: "2015", value: 5 },
   { name: "2016", value: 6.3 },
@@ -74,7 +74,11 @@ export default function InvestmentLandingPage() {
                 Plan & Learn
               </a>
             </div>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium shadow-sm">
+                <User className="w-5 h-5" />
+                <span>Kieron Ali</span>
+              </div>
               <Button variant="outline">24/7 Support Chat</Button>
               <Button variant="outline" onClick={() => router.push("/login")}>
                 Logout
