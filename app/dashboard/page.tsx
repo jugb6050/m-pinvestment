@@ -18,6 +18,7 @@ import {
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
 const data = [
   { name: "2015", value: 5 },
   { name: "2016", value: 6.3 },
@@ -46,59 +47,76 @@ export default function InvestmentLandingPage() {
   const [showTooltip, setShowTooltip] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 p-6 flex flex-col justify-between">
+    <div className="min-h-screen bg-gray-100 text-gray-900 p-4 sm:p-6 flex flex-col justify-between">
       <div>
+        {/* HEADER */}
         <header className="mb-8">
-          <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-black text-white py-6 rounded-xl shadow-lg mb-4">
-            <img src="/mnp.svg" alt="M & P Logo" className="w-50 h-50 mr-4" />
-            <h1 className="text-4xl font-bold">M & P Investments Bankers</h1>
+          <div className="flex flex-col sm:flex-row items-center justify-center bg-gradient-to-r from-blue-500 to-black text-white py-6 rounded-xl shadow-lg mb-4 text-center sm:text-left">
+            <img
+              src="/mnp.svg"
+              alt="M & P Logo"
+              className="w-24 h-auto mb-4 sm:mb-0 sm:mr-4"
+            />
+            <h1 className="text-2xl sm:text-4xl font-bold">
+              M & P Investments Bankers
+            </h1>
           </div>
-          <nav className="flex items-center justify-between bg-white shadow-md rounded-xl px-6 py-4 text-lg text-gray-700">
-            <div className="flex gap-4">
+
+          {/* NAVBAR */}
+          <nav className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white shadow-md rounded-xl px-4 sm:px-6 py-4 text-base sm:text-lg text-gray-700">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-4">
               <a
                 href="#"
-                className="border px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-black transition"
+                className="border px-4 py-2 rounded-lg hover:bg-gray-100 transition"
               >
                 Home
               </a>
               <a
                 href="#"
-                className="border px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-black transition"
+                className="border px-4 py-2 rounded-lg hover:bg-gray-100 transition"
               >
                 Accounts & Benefits
               </a>
               <a
                 href="#"
-                className="border px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-black transition"
+                className="border px-4 py-2 rounded-lg hover:bg-gray-100 transition"
               >
                 Plan & Learn
               </a>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center">
               <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium shadow-sm">
                 <User className="w-5 h-5" />
                 <span>Kieron Ali</span>
               </div>
-              <Button variant="outline">24/7 Support Chat</Button>
-              <Button variant="outline" onClick={() => router.push("/login")}>
+              <Button variant="outline" className="w-full sm:w-auto">
+                24/7 Support Chat
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full sm:w-auto"
+                onClick={() => router.push("/login")}
+              >
                 Logout
               </Button>
             </div>
           </nav>
         </header>
 
-        <section className="flex justify-between items-center bg-white shadow rounded-xl px-6 py-4 mb-6">
-          <h2 className="text-xl font-semibold text-gray-800">
+        {/* SUMMARY BAR */}
+        <section className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white shadow rounded-xl px-4 sm:px-6 py-4 mb-6 text-center sm:text-left">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
             Your Portfolio: $17,263,432
           </h2>
-          <p className="text-md text-gray-600">
+          <p className="text-sm sm:text-md text-gray-600 mt-2 sm:mt-0">
             Set goals, track, manage, and take control
           </p>
         </section>
 
+        {/* ALERT / TOOLTIP */}
         {showTooltip && (
-          <div className="flex items-center justify-between bg-yellow-100 border border-yellow-400 text-yellow-900 rounded-lg px-4 py-3 mb-6 shadow-md">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between bg-yellow-100 border border-yellow-400 text-yellow-900 rounded-lg px-4 py-3 mb-6 shadow-md text-sm sm:text-base">
+            <div className="flex items-center gap-2 mb-2 sm:mb-0">
               <Star className="w-5 h-5" />
               <span>
                 Get ahead of the market volatility by keeping perspective and
@@ -114,10 +132,11 @@ export default function InvestmentLandingPage() {
           </div>
         )}
 
+        {/* MAIN CHART CONTENT */}
         <main className="max-w-6xl mx-auto">
-          <Card className="p-6">
+          <Card className="p-4 sm:p-6">
             <CardContent>
-              <div className="text-2xl font-semibold text-center mb-4">
+              <div className="text-xl sm:text-2xl font-semibold text-center mb-4">
                 Investment Projection & Distribution
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -178,25 +197,28 @@ export default function InvestmentLandingPage() {
             guarantees of future performance.
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 border rounded-xl p-6 bg-white shadow">
-            <button className="border p-4 rounded-lg hover:bg-gray-50 transition text-left font-medium">
-              Manage Contributions
-            </button>
-            <button className="border p-4 rounded-lg hover:bg-gray-50 transition text-left font-medium">
-              View Your Statements
-            </button>
-            <button className="border p-4 rounded-lg hover:bg-gray-50 transition text-left font-medium">
-              Manage Investments
-            </button>
-            <button className="border p-4 rounded-lg hover:bg-gray-50 transition text-left font-medium">
-              Take a Loan or Withdrawal
-            </button>
+          {/* ACTION BUTTONS */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 border rounded-xl p-4 sm:p-6 bg-white shadow">
+            {[
+              "Manage Contributions",
+              "View Your Statements",
+              "Manage Investments",
+              "Take a Loan or Withdrawal",
+            ].map((text, idx) => (
+              <button
+                key={idx}
+                className="border p-4 rounded-lg hover:bg-gray-50 transition text-left font-medium w-full"
+              >
+                {text}
+              </button>
+            ))}
           </div>
         </main>
       </div>
 
+      {/* FOOTER */}
       <footer className="mt-12 text-center text-sm text-gray-600 border-t pt-6">
-        <div className="flex justify-center gap-6 flex-wrap">
+        <div className="flex justify-center gap-4 flex-wrap">
           <a href="#" className="hover:underline">
             Terms of Use
           </a>
